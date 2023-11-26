@@ -1,0 +1,2142 @@
+<html
+        xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<title>Jira</title>
+<style type="text/css">
+table {
+    mso-displayed-decimal-separator:"\.";
+    mso-displayed-thousand-separator:"\,";
+}
+body
+{
+    margin: 0px;
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+    color:black;
+}
+
+</style>
+<META HTTP-EQUIV="Content-Type" Content="application/vnd.ms-excel; charset=UTF-8">
+<!-- JRA-7598 - ensure fields (e.g. description) occupy only one cell - even fields containing newlines. -->
+<!--
+Vertical align all cells to the top, in order to align all issue rows of issuetable to the top,
+since Excel does not use or save the css files it is hardcoded here.
+-->
+<style>
+@page
+{
+mso-page-orientation:landscape;
+margin:.25in .25in .5in .25in;
+mso-header-margin:.5in;
+mso-footer-margin:.25in;
+mso-footer-data:"&R&P of &N";
+mso-horizontal-page-align:center;
+mso-vertical-page-align:center;
+}
+
+td.issuekey,
+td.issuetype,
+td.status {
+    mso-style-parent: "";
+    mso-number-format: \@;
+    text-align: left;
+}
+br
+{
+    mso-data-placement:same-cell;
+}
+
+td
+{
+    vertical-align: top;
+}
+</style>
+
+<!--[if gte mso 9]><xml>
+<x:ExcelWorkbook>
+<x:ExcelWorksheets>
+<x:ExcelWorksheet>
+<x:Name>general_report</x:Name>
+<x:WorksheetOptions>
+<x:Print>
+<x:ValidPrinterInfo/>
+</x:Print>
+</x:WorksheetOptions>
+</x:ExcelWorksheet>
+</x:ExcelWorksheets>
+</x:ExcelWorkbook>
+</xml><![endif]-->
+</head>
+<body>
+
+<table border="1">
+    <tr bgcolor="#205081" height="30">
+        <td colspan="72">
+            <img src="https://jmigroup.atlassian.net/images/icon-jira-software-logo.png" width="57" height="30" border="0" alt="Jira">
+        </td>
+    </tr>
+    <tr>
+        <td colspan="72">
+            <a href="https://jmigroup.atlassian.net/issues/?jql=project+%3D+%22NJM%22+ORDER+BY+created+DESC">Jira</a>
+        </td>
+    </tr>
+    <tr>
+                <td colspan="72">
+            Displaying <strong>16</strong> issues at <strong>26/Nov/23 9:19 AM</strong>.
+        </td>
+    </tr>
+</table>
+
+
+
+
+                                        <table id="issuetable" class="aui " border="1" cellpadding="3" cellspacing="1" width="100%">
+                        <thead>
+        <tr class="rowHeader">
+            
+                                                            <th class="colHeaderLink headerrow-project" data-id="project">
+                                                        Project
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-issuekey" data-id="issuekey">
+                                                        Key
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-summary" data-id="summary">
+                                                        Summary
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-issuetype" data-id="issuetype">
+                                                        Issue Type
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-status" data-id="status">
+                                                        Status
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-priority" data-id="priority">
+                                                        Priority
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-resolution" data-id="resolution">
+                                                        Resolution
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-assignee" data-id="assignee">
+                                                        Assignee
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-reporter" data-id="reporter">
+                                                        Reporter
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-creator" data-id="creator">
+                                                        Creator
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-created" data-id="created">
+                                                        Created
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-lastViewed" data-id="lastViewed">
+                                                        Last Viewed
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-updated" data-id="updated">
+                                                        Updated
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-resolutiondate" data-id="resolutiondate">
+                                                        Resolved
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-versions" data-id="versions">
+                                                        Affects versions
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-fixVersions" data-id="fixVersions">
+                                                        Fix versions
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-components" data-id="components">
+                                                        Components
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-duedate" data-id="duedate">
+                                                        Due date
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-votes" data-id="votes">
+                                                        Votes
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-watches" data-id="watches">
+                                                        Watchers
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-thumbnail" data-id="thumbnail">
+                                                        Images
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-timeoriginalestimate" data-id="timeoriginalestimate">
+                                                        Original estimate
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-timeestimate" data-id="timeestimate">
+                                                        Remaining Estimate
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-timespent" data-id="timespent">
+                                                        Time Spent
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-workratio" data-id="workratio">
+                                                        Work Ratio
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-subtasks" data-id="subtasks">
+                                                        Sub-tasks
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-issuelinks" data-id="issuelinks">
+                                                        Linked Issues
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-environment" data-id="environment">
+                                                        Environment
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-description" data-id="description">
+                                                        Description
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-security" data-id="security">
+                                                        Security Level
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-progress" data-id="progress">
+                                                        Progress
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-aggregateprogress" data-id="aggregateprogress">
+                                                        Σ Progress
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-aggregatetimespent" data-id="aggregatetimespent">
+                                                        Σ Time Spent
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-aggregatetimeestimate" data-id="aggregatetimeestimate">
+                                                        Σ Remaining Estimate
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-aggregatetimeoriginalestimate" data-id="aggregatetimeoriginalestimate">
+                                                        Σ Original Estimate
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-labels" data-id="labels">
+                                                        Labels
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-statuscategorychangedate" data-id="statuscategorychangedate">
+                                                        Status Category Changed
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-statusCategory" data-id="statusCategory">
+                                                        Status Category
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-parent" data-id="parent">
+                                                        Parent
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10009" data-id="customfield_10009">
+                                                        Actual end
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10008" data-id="customfield_10008">
+                                                        Actual start
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10003" data-id="customfield_10003">
+                                                        Approvers
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10031" data-id="customfield_10031">
+                                                        Atlas project key
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10032" data-id="customfield_10032">
+                                                        Atlas project status
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10007" data-id="customfield_10007">
+                                                        Change reason
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10006" data-id="customfield_10006">
+                                                        Change risk
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10005" data-id="customfield_10005">
+                                                        Change type
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10026" data-id="customfield_10026">
+                                                        Compass
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10013" data-id="customfield_10013">
+                                                        Epic Color
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10014" data-id="customfield_10014">
+                                                        Epic Link
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10011" data-id="customfield_10011">
+                                                        Epic Name
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10012" data-id="customfield_10012">
+                                                        Epic Status
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10021" data-id="customfield_10021">
+                                                        Flagged
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10004" data-id="customfield_10004">
+                                                        Impact
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10017" data-id="customfield_10017">
+                                                        Issue color
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10027" data-id="customfield_10027">
+                                                        Locked forms
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10028" data-id="customfield_10028">
+                                                        Open forms
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10002" data-id="customfield_10002">
+                                                        Organizations
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10018" data-id="customfield_10018">
+                                                        Parent Link
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10019" data-id="customfield_10019">
+                                                        Rank
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10010" data-id="customfield_10010">
+                                                        Request Type
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10020" data-id="customfield_10020">
+                                                        Sprint
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10015" data-id="customfield_10015">
+                                                        Start date
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10033" data-id="customfield_10033">
+                                                        Story Points
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10016" data-id="customfield_10016">
+                                                        Story point estimate
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10029" data-id="customfield_10029">
+                                                        Submitted forms
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10023" data-id="customfield_10023">
+                                                        Target end
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10022" data-id="customfield_10022">
+                                                        Target start
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10001" data-id="customfield_10001">
+                                                        Team
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10030" data-id="customfield_10030">
+                                                        Total forms
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10024" data-id="customfield_10024">
+                                                        [CHART] Date of First Response
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10000" data-id="customfield_10000">
+                                                        Development
+                                                    </th>
+                                                                    </tr>
+    </thead>
+    <tbody>
+                    
+
+                <tr id="issuerow10019" rel="10019" data-issuekey="NJM-16" class="issuerow">
+                                            <td class="project">    NIPRO JMI MEDICAL
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="NJM-16" href="https://jmigroup.atlassian.net/browse/NJM-16">NJM-16</a>
+</td>
+                                            <td class="summary"><p>
+                Verify &#39;Privacy Policy&#39; link
+    </p>
+</td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;To Do&lt;/span&gt;">To Do</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="assignee">            farzad rabbani
+    </td>
+                                            <td class="reporter">            MOHAMMAD SUMON
+    </td>
+                                            <td class="creator">            MOHAMMAD SUMON
+    </td>
+                                            <td class="created"> 14/Nov/23 4:22 PM </td>
+                                            <td class="lastViewed"> 26/Nov/23 9:19 AM </td>
+                                            <td class="updated"> 16/Nov/23 2:56 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">0</td>
+                                            <td class="thumbnail">            <a href="https://jmigroup.atlassian.net/secure/attachment/10022/privacy+policy.png">
+            privacy policy.png
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">      Clicking &quot;Privacy Policy&quot; directs to a different website. Corrective action is needed to ensure it links to the intended privacy policy page.<br/>
+<br/>
+[https://www.niprojmimedical.com/training-education/allergic-responses-during-hemodialysis-virtual|https://www.niprojmimedical.com/training-education/allergic-responses-during-hemodialysis-virtual|smart-link] 
+  </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 14/Nov/23 4:22 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">To Do</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10031"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10002"></td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10019">      0|i00047:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="customfield_10030"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10018" rel="10018" data-issuekey="NJM-15" class="issuerow">
+                                            <td class="project">    NIPRO JMI MEDICAL
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="NJM-15" href="https://jmigroup.atlassian.net/browse/NJM-15">NJM-15</a>
+</td>
+                                            <td class="summary"><p>
+                Introduction
+    </p>
+</td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;To Do&lt;/span&gt;">To Do</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="assignee">    <em>Unassigned</em>
+</td>
+                                            <td class="reporter">            MOHAMMAD SUMON
+    </td>
+                                            <td class="creator">            MOHAMMAD SUMON
+    </td>
+                                            <td class="created"> 14/Nov/23 4:11 PM </td>
+                                            <td class="lastViewed"> 16/Nov/23 2:56 PM </td>
+                                            <td class="updated"> 15/Nov/23 9:48 AM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">0</td>
+                                            <td class="thumbnail">            <a href="https://jmigroup.atlassian.net/secure/attachment/10021/Introduction.png">
+            Introduction.png
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">      *Test Steps:*<br/>
+<br/>
+*Step 1:* Open Browser<br/>
+<br/>
+*Step 2:* a. Search for &quot;NIPRO JMI MEDICAL&quot; <br/>
+<br/>
+b. Alternatively, navigate directly to the website using the URL: [https://www.niprojmimedical.com/|https://www.niprojmimedical.com/]<br/>
+<br/>
+*Step 3:* a. Scroll down to reach the footer section<br/>
+<br/>
+*Step 4:* a. Click on the &quot;Privacy Policy&quot; <br/>
+<br/>
+b. URL: [https://www.niprojmimedical.com/privacy-policy|https://www.niprojmimedical.com/privacy-policy|smart-link] <br/>
+<br/>
+*Step 5:* a. Within the Privacy Policy page, find and click on the section labeled &quot;Introduction&quot; <br/>
+<br/>
+b. Review and check all the information present in the Introduction section.<br/>
+<br/>
+*Note:*<br/>
+<br/>
+* Ensure to verify that the Privacy Policy link in the footer directs to the correct URL.<br/>
+* Confirm that the Introduction section contains all the relevant information as expected.
+  </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 14/Nov/23 4:11 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">To Do</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10031"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10002"></td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10019">      0|i0003z:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="customfield_10030"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10017" rel="10017" data-issuekey="NJM-14" class="issuerow">
+                                            <td class="project">    NIPRO JMI MEDICAL
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="NJM-14" href="https://jmigroup.atlassian.net/browse/NJM-14">NJM-14</a>
+</td>
+                                            <td class="summary"><p>
+                Teams &amp; Condition 
+    </p>
+</td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;To Do&lt;/span&gt;">To Do</span>    </td>
+                                            <td class="priority">           High
+    </td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="assignee">            farzad rabbani
+    </td>
+                                            <td class="reporter">            MOHAMMAD SUMON
+    </td>
+                                            <td class="creator">            MOHAMMAD SUMON
+    </td>
+                                            <td class="created"> 14/Nov/23 4:03 PM </td>
+                                            <td class="lastViewed"> 16/Nov/23 2:56 PM </td>
+                                            <td class="updated"> 14/Nov/23 4:03 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">0</td>
+                                            <td class="thumbnail">            <a href="https://jmigroup.atlassian.net/secure/attachment/10020/Teams+%26+Condition.png">
+            Teams & Condition.png
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description"></td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 14/Nov/23 4:03 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">To Do</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10031"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10002"></td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10019">      0|i0003r:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="customfield_10030"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10016" rel="10016" data-issuekey="NJM-13" class="issuerow">
+                                            <td class="project">    NIPRO JMI MEDICAL
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="NJM-13" href="https://jmigroup.atlassian.net/browse/NJM-13">NJM-13</a>
+</td>
+                                            <td class="summary"><p>
+                Missing right information &quot;Contact Us&quot;
+    </p>
+</td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;To Do&lt;/span&gt;">To Do</span>    </td>
+                                            <td class="priority">           High
+    </td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="assignee">            farzad rabbani
+    </td>
+                                            <td class="reporter">            MOHAMMAD SUMON
+    </td>
+                                            <td class="creator">            MOHAMMAD SUMON
+    </td>
+                                            <td class="created"> 14/Nov/23 3:39 PM </td>
+                                            <td class="lastViewed"> &nbsp; </td>
+                                            <td class="updated"> 16/Nov/23 2:43 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a href="https://jmigroup.atlassian.net/secure/attachment/10019/image-20231114-092545.png">
+            image-20231114-092545.png
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">      &quot;Contact Us&quot; displays incorrect information with a different address. Urgent correction is required to provide accurate and consistent details.<br/>
+<br/>
+# Open your web browser.<br/>
+# Enter [https://www.niprojmimedical.com/|https://www.niprojmimedical.com/] in the address bar.<br/>
+# Click on the &quot;Privacy Policy&quot; button in the footer.<br/>
+# Scroll Down<br/>
+# Click “Contact Us”<br/>
+<br/>
+h2. <br/>
+<br/>
+h2. 
+  </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 16/Nov/23 2:43 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">To Do</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10031"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10002"></td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10019">      0|i0003j:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="customfield_10030"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10015" rel="10015" data-issuekey="NJM-12" class="issuerow">
+                                            <td class="project">    NIPRO JMI MEDICAL
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="NJM-12" href="https://jmigroup.atlassian.net/browse/NJM-12">NJM-12</a>
+</td>
+                                            <td class="summary"><p>
+                The &quot;Filter By&quot; function is not working as intended and requires attention to restore its proper functionality.
+    </p>
+</td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;To Do&lt;/span&gt;">To Do</span>    </td>
+                                            <td class="priority">           High
+    </td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="assignee">            farzad rabbani
+    </td>
+                                            <td class="reporter">            MOHAMMAD SUMON
+    </td>
+                                            <td class="creator">            MOHAMMAD SUMON
+    </td>
+                                            <td class="created"> 14/Nov/23 11:41 AM </td>
+                                            <td class="lastViewed"> 20/Nov/23 10:51 AM </td>
+                                            <td class="updated"> 20/Nov/23 10:51 AM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a href="https://jmigroup.atlassian.net/secure/attachment/10018/Filter+By.png">
+            Filter By.png
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">      The &quot;Filter By&quot; feature is currently non-functional, impeding its intended purpose. Addressing this issue is crucial to ensure users can efficiently filter and access relevant information on the platform.<br/>
+<br/>
+# Open your web browser.<br/>
+# Enter [https://www.niprojmimedical.com/|https://www.niprojmimedical.com/] in the address bar.<br/>
+# Click on the &quot;MEDIA&quot; button in the header.<br/>
+# Click on PHOTO GALLERY<br/>
+# Scroll Down<br/>
+# Change Filter By
+  </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 14/Nov/23 11:41 AM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">To Do</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10031"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10002"></td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10019">      0|i0003b:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="customfield_10030"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10014" rel="10014" data-issuekey="NJM-11" class="issuerow">
+                                            <td class="project">    NIPRO JMI MEDICAL
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="NJM-11" href="https://jmigroup.atlassian.net/browse/NJM-11">NJM-11</a>
+</td>
+                                            <td class="summary"><p>
+                Button not working 
+    </p>
+</td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;To Do&lt;/span&gt;">To Do</span>    </td>
+                                            <td class="priority">           High
+    </td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="assignee">            farzad rabbani
+    </td>
+                                            <td class="reporter">            MOHAMMAD SUMON
+    </td>
+                                            <td class="creator">            MOHAMMAD SUMON
+    </td>
+                                            <td class="created"> 14/Nov/23 11:39 AM </td>
+                                            <td class="lastViewed"> 16/Nov/23 2:55 PM </td>
+                                            <td class="updated"> 16/Nov/23 2:56 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a href="https://jmigroup.atlassian.net/secure/attachment/10017/not+working+01+.png">
+            not working 01 .png
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">      The button is unresponsive, failing to change upon clicking. There is an issue with its functionality that needs to be addressed.<br/>
+<br/>
+# Open your web browser.<br/>
+# Enter [https://www.niprojmimedical.com/|https://www.niprojmimedical.com/] in the address bar.<br/>
+# Click on the &quot;MEDIA&quot; button in the header.<br/>
+# Click on PHOTO GALLERY<br/>
+# Scroll Down<br/>
+# click number and right button
+  </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 14/Nov/23 11:39 AM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">To Do</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10031"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10002"></td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10019">      0|i00033:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="customfield_10030"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10013" rel="10013" data-issuekey="NJM-10" class="issuerow">
+                                            <td class="project">    NIPRO JMI MEDICAL
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="NJM-10" href="https://jmigroup.atlassian.net/browse/NJM-10">NJM-10</a>
+</td>
+                                            <td class="summary"><p>
+                Video Missing 
+    </p>
+</td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;To Do&lt;/span&gt;">To Do</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="assignee">            farzad rabbani
+    </td>
+                                            <td class="reporter">            MOHAMMAD SUMON
+    </td>
+                                            <td class="creator">            MOHAMMAD SUMON
+    </td>
+                                            <td class="created"> 14/Nov/23 11:32 AM </td>
+                                            <td class="lastViewed"> 16/Nov/23 2:55 PM </td>
+                                            <td class="updated"> 14/Nov/23 3:40 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a href="https://jmigroup.atlassian.net/secure/attachment/10015/Vedio+Unable.png">
+            Vedio Unable.png
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">      Video Missing here <br/>
+<br/>
+# Open your web browser.<br/>
+# Enter [https://www.niprojmimedical.com/|https://www.niprojmimedical.com/] in the address bar.<br/>
+# Click on the &quot;MEDIA&quot; button in the header.<br/>
+# Click on VIDEO GALLERY<br/>
+# Scroll Down 
+  </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 14/Nov/23 11:32 AM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">To Do</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10031"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10002"></td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10019">      0|i0002v:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="customfield_10030"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10012" rel="10012" data-issuekey="NJM-9" class="issuerow">
+                                            <td class="project">    NIPRO JMI MEDICAL
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="NJM-9" href="https://jmigroup.atlassian.net/browse/NJM-9">NJM-9</a>
+</td>
+                                            <td class="summary"><p>
+                Sign Up 
+    </p>
+</td>
+                                            <td class="issuetype">    Improvement
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;To Do&lt;/span&gt;">To Do</span>    </td>
+                                            <td class="priority">           High
+    </td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="assignee">            farzad rabbani
+    </td>
+                                            <td class="reporter">            MOHAMMAD SUMON
+    </td>
+                                            <td class="creator">            MOHAMMAD SUMON
+    </td>
+                                            <td class="created"> 14/Nov/23 11:27 AM </td>
+                                            <td class="lastViewed"> &nbsp; </td>
+                                            <td class="updated"> 14/Nov/23 3:40 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a href="https://jmigroup.atlassian.net/secure/attachment/10014/AFTER+click+sign+up.png">
+            AFTER click sign up.png
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">      The &quot;Sign Up&quot; option is malfunctioning, requiring improvement for proper functionality and user experience.<br/>
+<br/>
+# Open your web browser.<br/>
+# Enter [https://www.niprojmimedical.com/|https://www.niprojmimedical.com/] in the address bar.<br/>
+# Click on the &quot;EDUCATION  &amp; TRAINING &quot; button in the header.<br/>
+# Now click  FOR PATIENT/DOCTOR<br/>
+# Scroll Down<br/>
+# Click “READ MORE”
+  </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 14/Nov/23 11:27 AM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">To Do</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10031"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10002"></td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10019">      0|i0002n:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="customfield_10030"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10011" rel="10011" data-issuekey="NJM-8" class="issuerow">
+                                            <td class="project">    NIPRO JMI MEDICAL
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="NJM-8" href="https://jmigroup.atlassian.net/browse/NJM-8">NJM-8</a>
+</td>
+                                            <td class="summary"><p>
+                Contact Us page Not Found
+    </p>
+</td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;To Do&lt;/span&gt;">To Do</span>    </td>
+                                            <td class="priority">           High
+    </td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="assignee">            farzad rabbani
+    </td>
+                                            <td class="reporter">            MOHAMMAD SUMON
+    </td>
+                                            <td class="creator">            MOHAMMAD SUMON
+    </td>
+                                            <td class="created"> 14/Nov/23 10:47 AM </td>
+                                            <td class="lastViewed"> &nbsp; </td>
+                                            <td class="updated"> 14/Nov/23 3:41 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a href="https://jmigroup.atlassian.net/secure/attachment/10011/Contact+Us+02.png">
+            Contact Us 02.png
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">      # Open your web browser.<br/>
+# Enter [https://www.niprojmimedical.com/|https://www.niprojmimedical.com/] in the address bar.<br/>
+# Scroll down.<br/>
+# Click on “[CONTACT US|https://www.niprojmimedical.com/about-us/contact-us]“ 
+  </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 14/Nov/23 10:47 AM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">To Do</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10031"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10002"></td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10019">      0|i0002f:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="customfield_10030"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10010" rel="10010" data-issuekey="NJM-7" class="issuerow">
+                                            <td class="project">    NIPRO JMI MEDICAL
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="NJM-7" href="https://jmigroup.atlassian.net/browse/NJM-7">NJM-7</a>
+</td>
+                                            <td class="summary"><p>
+                The &quot;View Details&quot; button is non-functional, leading to an error page upon clicking.
+    </p>
+</td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="priority">           High
+    </td>
+                                            <td class="resolution">    Done
+</td>
+                                            <td class="assignee">            farzad rabbani
+    </td>
+                                            <td class="reporter">            MOHAMMAD SUMON
+    </td>
+                                            <td class="creator">            MOHAMMAD SUMON
+    </td>
+                                            <td class="created"> 14/Nov/23 10:41 AM </td>
+                                            <td class="lastViewed"> 16/Nov/23 3:19 PM </td>
+                                            <td class="updated"> 16/Nov/23 3:19 PM </td>
+                                            <td class="resolutiondate"> 16/Nov/23 3:19 PM </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a href="https://jmigroup.atlassian.net/secure/attachment/10009/View+Details.png">
+            View Details.png
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">      &quot;Non-functional &#39;View Details&#39; button on the website leads to an error page, hindering the intended functionality upon clicking.&quot;<br/>
+<br/>
+To replicate the issue:<br/>
+<br/>
+# Open your web browser.<br/>
+# Enter [https://www.niprojmimedical.com/|https://www.niprojmimedical.com/] in the address bar.<br/>
+# Click on the &quot;Careers&quot; button in the header.<br/>
+# Scroll down.<br/>
+# Click on &quot;View Details&quot; under the Available Jobs section.
+  </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 16/Nov/23 3:19 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-green
+            jira-issue-status-lozenge-max-width-medium">Done</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10031"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10002"></td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10019">      0|i00027:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="customfield_10030"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10009" rel="10009" data-issuekey="NJM-6" class="issuerow">
+                                            <td class="project">    NIPRO JMI MEDICAL
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="NJM-6" href="https://jmigroup.atlassian.net/browse/NJM-6">NJM-6</a>
+</td>
+                                            <td class="summary"><p>
+                The &quot;VIEW JOB OPENINGS&quot; button is non-functional and deemed unnecessary.
+    </p>
+</td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;To Do&lt;/span&gt;">To Do</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="assignee">            farzad rabbani
+    </td>
+                                            <td class="reporter">            MOHAMMAD SUMON
+    </td>
+                                            <td class="creator">            MOHAMMAD SUMON
+    </td>
+                                            <td class="created"> 14/Nov/23 10:23 AM </td>
+                                            <td class="lastViewed"> 18/Nov/23 11:30 AM </td>
+                                            <td class="updated"> 14/Nov/23 3:40 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a href="https://jmigroup.atlassian.net/secure/attachment/10007/button+.png">
+            button .png
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">      The &quot;VIEW JOB OPENINGS&quot; button is non-functional and considered unnecessary. To replicate the issue:<br/>
+<br/>
+# Open your web browser.<br/>
+# Enter [https://www.niprojmimedical.com/|https://www.niprojmimedical.com/] in the address bar.<br/>
+# Click on the &quot;Careers&quot; button in the header.<br/>
+# Scroll down.<br/>
+# Attempt to click on &quot;View Job Openings.&quot;
+  </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 14/Nov/23 10:23 AM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">To Do</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10031"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10002"></td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10019">      0|i0001z:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="customfield_10030"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10008" rel="10008" data-issuekey="NJM-5" class="issuerow">
+                                            <td class="project">    NIPRO JMI MEDICAL
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="NJM-5" href="https://jmigroup.atlassian.net/browse/NJM-5">NJM-5</a>
+</td>
+                                            <td class="summary"><p>
+                Contact Us Page Not working
+    </p>
+</td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="priority">           Highest
+    </td>
+                                            <td class="resolution">    Done
+</td>
+                                            <td class="assignee">            farzad rabbani
+    </td>
+                                            <td class="reporter">            MOHAMMAD SUMON
+    </td>
+                                            <td class="creator">            MOHAMMAD SUMON
+    </td>
+                                            <td class="created"> 14/Nov/23 10:09 AM </td>
+                                            <td class="lastViewed"> 16/Nov/23 2:55 PM </td>
+                                            <td class="updated"> 16/Nov/23 2:55 PM </td>
+                                            <td class="resolutiondate"> 16/Nov/23 2:44 PM </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a href="https://jmigroup.atlassian.net/secure/attachment/10012/Contact+Us+01.png">
+            Contact Us 01.png
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">      The &quot;Contact Us&quot; page is currently inaccessible, displaying an error upon clicking. Resolution is needed to restore proper functionality.
+  </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 16/Nov/23 2:44 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-green
+            jira-issue-status-lozenge-max-width-medium">Done</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10031"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10002"></td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10019">      0|i0001r:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="customfield_10030"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10007" rel="10007" data-issuekey="NJM-4" class="issuerow">
+                                            <td class="project">    NIPRO JMI MEDICAL
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="NJM-4" href="https://jmigroup.atlassian.net/browse/NJM-4">NJM-4</a>
+</td>
+                                            <td class="summary"><p>
+                Ensure it directs to the intended personal/company YouTube profile.
+    </p>
+</td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;To Do&lt;/span&gt;">To Do</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="assignee">            farzad rabbani
+    </td>
+                                            <td class="reporter">            MOHAMMAD SUMON
+    </td>
+                                            <td class="creator">            MOHAMMAD SUMON
+    </td>
+                                            <td class="created"> 14/Nov/23 9:38 AM </td>
+                                            <td class="lastViewed"> 16/Nov/23 3:19 PM </td>
+                                            <td class="updated"> 14/Nov/23 3:39 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">      Clicking the YouTube icon should lead to the personal/company profile but currently redirects to the wrong YouTube profile. Correction is needed for accurate linking.<br/>
+<br/>
+# Open your web browser.<br/>
+# Enter [https://www.niprojmimedical.com/|https://www.niprojmimedical.com/] in the address bar.<br/>
+# Scroll down to the webpage&#39;s footer.<br/>
+# Click on the YouTube icon.
+  </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 14/Nov/23 9:38 AM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">To Do</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10031"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10002"></td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10019">      0|i0001j:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="customfield_10030"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10006" rel="10006" data-issuekey="NJM-3" class="issuerow">
+                                            <td class="project">    NIPRO JMI MEDICAL
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="NJM-3" href="https://jmigroup.atlassian.net/browse/NJM-3">NJM-3</a>
+</td>
+                                            <td class="summary"><p>
+                LinkedIn icon redirects to wrong profile, needs correction for accuracy.
+    </p>
+</td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;To Do&lt;/span&gt;">To Do</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="assignee">            farzad rabbani
+    </td>
+                                            <td class="reporter">            MOHAMMAD SUMON
+    </td>
+                                            <td class="creator">            MOHAMMAD SUMON
+    </td>
+                                            <td class="created"> 14/Nov/23 9:35 AM </td>
+                                            <td class="lastViewed"> &nbsp; </td>
+                                            <td class="updated"> 14/Nov/23 3:39 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">      Clicking on the LinkedIn icon in the footer is intended to lead to the personal or company LinkedIn profile, but it currently directs to a different LinkedIn profile. This issue needs correction to ensure the proper link is established.
+  </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 14/Nov/23 9:35 AM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">To Do</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10031"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10002"></td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10019">      0|i0001b:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="customfield_10030"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10005" rel="10005" data-issuekey="NJM-2" class="issuerow">
+                                            <td class="project">    NIPRO JMI MEDICAL
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="NJM-2" href="https://jmigroup.atlassian.net/browse/NJM-2">NJM-2</a>
+</td>
+                                            <td class="summary"><p>
+                Facebook icon redirects to wrong profile, needs correction for accuracy.
+    </p>
+</td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;To Do&lt;/span&gt;">To Do</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="assignee">            farzad rabbani
+    </td>
+                                            <td class="reporter">            MOHAMMAD SUMON
+    </td>
+                                            <td class="creator">            MOHAMMAD SUMON
+    </td>
+                                            <td class="created"> 14/Nov/23 9:32 AM </td>
+                                            <td class="lastViewed"> &nbsp; </td>
+                                            <td class="updated"> 14/Nov/23 3:39 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">      Clicking on the Facebook icon in the footer is intended to lead to the personal or company Facebook profile, but it currently directs to a different Facebook profile. This issue needs correction to ensure the proper link is established.<br/>
+<br/>
+<br/>
+<br/>
+# Open your web browser.<br/>
+# Enter [https://www.niprojmimedical.com/|https://www.niprojmimedical.com/] in the address bar.<br/>
+# Scroll down to the webpage&#39;s footer.<br/>
+# Click on the Facebook icon.
+  </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 14/Nov/23 9:32 AM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">To Do</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10031"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10002"></td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10019">      0|i00013:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="customfield_10030"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10004" rel="10004" data-issuekey="NJM-1" class="issuerow">
+                                            <td class="project">    NIPRO JMI MEDICAL
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="NJM-1" href="https://jmigroup.atlassian.net/browse/NJM-1">NJM-1</a>
+</td>
+                                            <td class="summary"><p>
+                The footer logo is currently malfunctioning, as clicking on it should redirect to the home page but instead leads to a different website. This issue needs to be addressed to ensure proper functionality.
+    </p>
+</td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;To Do&lt;/span&gt;">To Do</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="assignee">            farzad rabbani
+    </td>
+                                            <td class="reporter">            MOHAMMAD SUMON
+    </td>
+                                            <td class="creator">            MOHAMMAD SUMON
+    </td>
+                                            <td class="created"> 14/Nov/23 9:27 AM </td>
+                                            <td class="lastViewed"> 21/Nov/23 3:54 PM </td>
+                                            <td class="updated"> 14/Nov/23 3:39 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">      # Open your web browser.<br/>
+# Type the URL [https://www.niprojmimedical.com/|https://www.niprojmimedical.com/] in the address bar.<br/>
+# Scroll down to reach the footer section of the webpage.<br/>
+# Locate and click on the &quot;NIPRO JMI MEDICAL&quot; logo in the footer.
+  </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 14/Nov/23 9:27 AM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">To Do</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10031"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10002"></td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10019">      0|i0000v:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="customfield_10030"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+        </tbody>
+    </table>
+    <div class="end-of-stable-message"></div>
+            <table border="1" >
+<tr>
+    <td bgcolor="#dddddd" colspan="72"><font size="1">
+        Generated at Sun Nov 26 03:19:17 UTC 2023 by MOHAMMAD SUMON using Jira 1001.0.0-SNAPSHOT#100242-sha1:cfa489161742104fca02f9e695a57464d2641868.
+    </font></td>
+</tr>
+</table>
+
+</body>
+</html>
